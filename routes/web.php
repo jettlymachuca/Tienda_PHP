@@ -16,3 +16,92 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('paises', function(){
+    $paises = [
+
+        "Colombia" => [
+
+            "Capital" => "Bogotá",
+            "Moneda" => "Peso",
+            "Poblacion" => 50.88,
+            "Ciudades" => [
+
+                "Medellin",
+                "Cali",
+                "Barranquilla"
+
+            ],
+
+        ],
+        "Peru" => [
+
+            "Capital" => "Lima",
+            "Moneda" => "Sol",
+            "Poblacion" => 32.97,
+            "Ciudades" => [
+
+                "Cusco",
+                "Arequipa",
+                "Trujillo"
+
+            ],
+        ],
+        "Paraguay" => [
+
+            "Capital" => "Asunsion",
+            "Moneda" => "Guarani",
+            "Poblacion" => 7.1,
+            "Ciudades" => [
+
+                "Encarnacion",
+                "Villarica",
+                "Aregua"
+
+            ],
+        ],
+        "Venezuela" => [
+
+            "Capital" => "Caracas",
+            "Moneda" => "Dolar",
+            "Poblacion" => 28.44,
+            "Ciudades" => [
+
+                "Maracaibo",
+                "Valencia",
+                "Barinas"
+
+            ],
+        ],
+        "España" => [
+
+            "Capital" => "Madrid",
+            "Moneda" => "Euro",
+            "Poblacion" => 47.35,
+            "Ciudades" => [
+
+                "Barcelona",
+                "Sevilla",
+                "Mallorca",
+                "Valencia",
+                "Toledo"
+
+            ],
+        ],
+        "Afganistan" => [
+
+            "Capital" => "Kabul",
+            "Moneda" => "Afgani afgano",
+            "Poblacion" => 38.93,
+            "Ciudades" => [
+
+                "Herat",
+                "Zaranj",
+                "Kandahar"
+
+            ],
+        ],
+
+    ];
+    return view('paises')->with('paises', $paises);
+});
