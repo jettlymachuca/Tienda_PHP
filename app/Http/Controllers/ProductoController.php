@@ -16,7 +16,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        echo "aqui va a ir el catalogo de productos";
+        //selecciono todos los productos en un arreglo
+        $productos = Producto::all();
+        //mostrar la vista del catalogo
+        return view('productos.index')->with('productos' , $productos);
     }
 
     /**
@@ -51,6 +54,14 @@ class ProductoController extends Controller
         $p->precio = $request->precio;
         $p->marca_id = $request->marca;
         $p->categoria_id = $request->categoria;
+        //Mover el archivo cargado(Upload) a la carpeta public/img
+        //objeto file
+        $archivo = $request->imagen;
+        $p->imagen = $archivo->getClientOriginalName();
+        //ruta donde se almacena el archivo
+        $ruta = public_path()."/img";
+        //movemos archivo aruta
+        $archivo->move($ruta, $archivo->getClientOriginalName());
         $p->save();
         //redireccionar: a una ruta disponible
         return redirect('productos/create')->with('mensaje' , "Producto Registrado Exitosamente");

@@ -6,12 +6,15 @@
 </div>
 
 <div class="row">
-    <form method="POST" action="{{ route('productos.store') }}" class="col s12">
+    <form method="POST" 
+          action="{{ route('productos.store') }}" 
+          class="col s12" 
+          enctype="multipart/form-data">
       @csrf
       @if(session('mensaje'))
         <div class="row">
           <div class="col s8">
-            <span class="blue-text text-darken-4">
+            <span class="green-text text-darken-1">
               {{ session('mensaje') }}
             </span>
           </div>
@@ -47,6 +50,7 @@
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
       </div>
+      <span class="red-text text-darken-1">{{ $errors->first('imagen') }}</span>
     </div>
       </div>
       <div class="row">
