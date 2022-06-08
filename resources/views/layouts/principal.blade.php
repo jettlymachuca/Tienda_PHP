@@ -11,9 +11,9 @@
 <body>
 <nav class="light-blue accent-3">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">La Tienda PHP</a>
+      <a href="#" class="brand-logo center">La Tienda PHP</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="badges.html">Productos</a></li>
+        <li><a href="{{ route('productos.store') }}">Productos</a></li>
         <li><a href="collapsible.html">Pedidos</a></li>
       </ul>
     </div>
